@@ -3,29 +3,14 @@
 /* isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false
 otherwise. */
 
+/* import from testquestion.js module */
+const functionsVowel = require("./testquestion.js");
+const isVowel = functionsVowel.isVowel;
+
+
 
 const assert = require("assert");
 
-console.log(isVowel("a"));
-console.log(isVowel("e"));
-console.log(isVowel("i"));
-console.log(isVowel("o"));
-console.log(isVowel("u"));
-console.log(isVowel("z"));
-console.log(isVowel("5"));
-/**
- * 
- * @param {String} vowel -vowel only.
- * @returns {boolean} true or false. 
- */
-function isVowel(vowel) {
-    if (vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u") {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 describe("isVowel", function () {
     it("a is vowel", function () {
         assert.equal(isVowel("a"), true);
@@ -49,4 +34,3 @@ describe("isVowel", function () {
         assert.equal(isVowel("5"), false);
     });
 });
-

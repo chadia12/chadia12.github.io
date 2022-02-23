@@ -1,4 +1,4 @@
-
+"use strict";
 /*
 Input	                                  processing	                                                      output
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -14,7 +14,12 @@ Input	                                  processing	                             
     
  console.log("expect 16470.09:", returnBalance(10000, 5, 10));
 
-
+/** 
+* @param {number} intialAmount  intial Amount.
+* @param {number} annualInterestRate  Annual Interest Rate.
+* @param {number} yearCompound Compound in year.
+* @returns {number} the balance. 
+*/ 
 function returnBalance(intialAmount, annualInterestRate,yearCompound){
         let balance = intialAmount;
 

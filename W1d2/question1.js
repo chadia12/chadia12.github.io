@@ -1,4 +1,5 @@
-"use script";
+"use strict";
+
 
     console.log("expect 0: ", computeSalesCommission(true, 200));
     console.log("expect 0: ", computeSalesCommission(false, 200));
@@ -6,7 +7,13 @@
     console.log("expect 6: ", computeSalesCommission(false, 300));
     console.log("expect 65: ", computeSalesCommission(true, 3500));
     console.log("expect 100: ", computeSalesCommission(false, 3500));
-    
+
+
+ /** 
+* @param {boolean} isSalaried - salary based.
+* @param {number} salesAmount - sales Amount.
+* @returns {number} -commission 
+*/   
 function computeSalesCommission(isSalaried, salesAmount){
    
     let commision;

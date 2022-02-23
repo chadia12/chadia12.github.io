@@ -1,4 +1,4 @@
-
+"use strict";
 /*
           Input                                      Processing                            Output
    -----------------------------------------------------------------------------------------------------
@@ -11,12 +11,16 @@
                               |      - if cost is above 200k then                |
                               |         compute $5000 + 10% of (cost - $200K)    |
 */
-"use script";
+
 console.log("expect 2000: ", calcDownpayment(40000));
 console.log("expect 2500: ", calcDownpayment(50000));
 console.log("expect 7500: ", calcDownpayment(100000));
 console.log("expect 25000: ", calcDownpayment(250000));
-
+/**
+ * 
+ * @param {number} cost - cost of house.
+ * @returns {number} - the down payment for house.
+ */
 function calcDownpayment(cost){
     
 if(cost < 50000){

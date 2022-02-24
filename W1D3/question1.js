@@ -6,13 +6,13 @@ otherwise. */
 
 const assert = require("assert");
 
-console.log(isVowel("a"));
-console.log(isVowel("e"));
-console.log(isVowel("i"));
-console.log(isVowel("o"));
-console.log(isVowel("u"));
-console.log(isVowel("z"));
-console.log(isVowel("5"));
+// console.log(isVowel("a"));
+// console.log(isVowel("e"));
+// console.log(isVowel("i"));
+// console.log(isVowel("o"));
+// console.log(isVowel("u"));
+// console.log(isVowel("z"));
+// console.log(isVowel("5"));
 /**
  * 
  * @param {String} vowel -vowel only.

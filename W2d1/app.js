@@ -126,11 +126,11 @@ function showIds() {
  */
 function addBook(title, author, libraryID) {
     let newbook = {};
-   title = document.getElementById("title").value; //retrieves the book title from the title textbox
+    title = document.getElementById("title").value; //retrieves the book title from the title textbox
     //finish the implementation -- get the author, create a book object, and add to the library array
-     author = document.getElementById("author").value;
-     libraryID = document.getElementById("libraryID").value;
-     newbook = { title, author, libraryID };
+    author = document.getElementById("author").value;
+    libraryID = document.getElementById("libraryID").value;
+    newbook = { title, author, libraryID };
     library.push(newbook);
     return newbook;
 
@@ -139,10 +139,8 @@ function addBook(title, author, libraryID) {
 /**
  * @returns {undefined}
  */
- function scramble() {
-    let sortedlength = [];
+function scramble() {
     let sorter = showTitles();
-    // sortedlength =
     let str = sorter.toString();
     let strtoarr = str.split(/[, " "]/);
     strtoarr.sort((a, b) => (a.length > b.length) ? 1 : -1);

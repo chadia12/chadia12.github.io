@@ -36,5 +36,3 @@ let newarr = [];
    return newarr;
     //return arr.map(fnc);
 }
-let arr1 =[-10, 0, 10, 20];
-console.log(myMap(arr1, double));

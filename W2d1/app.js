@@ -153,7 +153,7 @@ function addBook(title, author, libraryID) {
     title = document.getElementById("title").value; //retrieves the book title from the title textbox
     //finish the implementation -- get the author, create a book object, and add to the library array
     author = document.getElementById("author").value;
-    libraryID = document.getElementById("libraryId").value;
+    libraryID = document.getElementById("libraryID").value;
     newbook = { title, author, libraryID };
     library.push(newbook);
     return newbook;

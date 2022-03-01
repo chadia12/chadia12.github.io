@@ -8,32 +8,7 @@ let library = [
     { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
     { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
 ];
-/**
- * @returns {undefined}
- */
-function scramble() {
-    let sortedlength = [];
 
-    let sorter = showTitles();
-
-    // sortedlength =
-
-    let str = sorter.toString();
-
-
-
-    let strtoarr = str.split(/[, " "]/);
-
-    strtoarr.sort((a, b) => (a.length > b.length) ? 1 : -1);
-
-
-
-    const arrString = strtoarr.join("\n");
-
-    let textArea = document.getElementById("displayArea");
-
-    textArea.innerHTML = arrString;
-}
 
 /**
  * Event handler to display library titles sorted alphabetically
@@ -51,6 +26,7 @@ function showTitles() {
 
     let textArea = document.getElementById("displayArea");
     textArea.innerHTML = titleString;
+    return titles;
 }
 
 
@@ -150,12 +126,28 @@ function showIds() {
  */
 function addBook(title, author, libraryID) {
     let newbook = {};
-    title = document.getElementById("title").value; //retrieves the book title from the title textbox
+   title = document.getElementById("title").value; //retrieves the book title from the title textbox
     //finish the implementation -- get the author, create a book object, and add to the library array
-    author = document.getElementById("author").value;
-    libraryID = document.getElementById("libraryID").value;
-    newbook = { title, author, libraryID };
+     author = document.getElementById("author").value;
+     libraryID = document.getElementById("libraryID").value;
+     newbook = { title, author, libraryID };
     library.push(newbook);
     return newbook;
 
+}
+
+/**
+ * @returns {undefined}
+ */
+ function scramble() {
+    let sortedlength = [];
+    let sorter = showTitles();
+    // sortedlength =
+    let str = sorter.toString();
+    let strtoarr = str.split(/[, " "]/);
+    strtoarr.sort((a, b) => (a.length > b.length) ? 1 : -1);
+    const arrString = strtoarr.join("\n");
+    let textArea = document.getElementById("displayArea");
+
+    textArea.innerHTML = arrString;
 }

@@ -69,11 +69,25 @@ function sum (x, y, ...more){
 return total;
 }
 // a)
+// function printNumbers(from, to){
+//     let timerNumber = setInterval(function (){
+//         console.log(from);
+//         if(from == to){
+//             clearInterval(timerNumber);
+//         }
+//         from++;
+//     }, 1000)
+// }
+
+// console.log(printNumbers(5, 8));
+
+// b
+
 function printNumbers(from, to){
-    let timerNumber = setInterval(function (){
+    setTimeout(function start(){
         console.log(from);
-        if(from == to){
-            clearInterval(timerNumber);
+        if(from < to){
+            setTimeout(start, 1000);
         }
         from++;
     }, 1000)
@@ -83,4 +97,4 @@ console.log(printNumbers(5, 8));
 
 // using setTimeout
 
-//What will setTimeout show? 100000000
+//What will setTimeout show? 100000000c

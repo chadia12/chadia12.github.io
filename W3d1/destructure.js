@@ -8,7 +8,7 @@ function topSalary(salaries) {
   let max = 0;
   let name = null;
   for(let [key, value] of Object.entries(salaries)){
-  if(salaries === {}){
+  if(Object.entries(salaries).length == 0 ){
     return null;
   }
   else{

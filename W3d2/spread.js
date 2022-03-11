@@ -58,48 +58,48 @@ function combineObjs(obj1, obj2){
     return newobj;
 
 }
-let arr =[3, 5, 6, 8,];
-let [x, y] = arr;
+// let arr =[3, 5, 6, 8,];
+// let [x, y] = arr;
 
-function sum (x, y, ...more){
-    let total = x + y;
-    for(let elements of more){
-        total +=elements
-    }
-return total;
-}
-// a)
-function printNumbers(from, to){
-    let timerNumber = setInterval(function (){
-        console.log(from);
-        if(from == to){
-            clearInterval(timerNumber);
-        }
-        from++;
-    }, 1000)
-}
+// function sum (x, y, ...more){
+//     let total = x + y;
+//     for(let elements of more){
+//         total +=elements
+//     }
+// return total;
+// }
+// // a)
+// function printNumbers(from, to){
+//     let timerNumber = setInterval(function (){
+//         console.log(from);
+//         if(from == to){
+//             clearInterval(timerNumber);
+//         }
+//         from++;
+//     }, 1000)
+// }
 
-console.log(printNumbers(5, 8));
+// console.log(printNumbers(5, 8));
 
-// b
+// // b
 
-function printNum(from, to){
-    setTimeout(function start(){
-        console.log(from);
-        if(from < to){
-            setTimeout(start, 1000);
-        }
-        from++;
-    }, 1000)
-}
+// function printNum(from, to){
+//     setTimeout(function start(){
+//         console.log(from);
+//         if(from < to){
+//             setTimeout(start, 1000);
+//         }
+//         from++;
+//     }, 1000)
+// }
 
-console.log(printNum(7, 10));
+// console.log(printNum(7, 10));
 
-// using setTimeout
+// // using setTimeout
 
-let i = 0;
+// let i = 0;
 
-setTimeout(() => alert(i), 100); // 100000000
-for(let j = 0; j < 100000000; j++) {
-  i++;
-}
+// setTimeout(() => console.log((i), 100)); // 100000000
+// for(let j = 0; j < 100000000; j++) {
+//   i++;
+// }

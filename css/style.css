@@ -244,7 +244,7 @@ a img {
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans';
-    font-weight: 700;
+    font-weight: 400;
     color: #333;
 }
 
@@ -372,7 +372,7 @@ a:after {
 #headerwrap h1 {
     color: #ffffff;
     margin-top: -108px;
-    padding-bottom: 63px;
+    padding-bottom: 0px;
     letter-spacing: 8px;
     font-size: 72px;
     font-weight: bold;

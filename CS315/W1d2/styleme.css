@@ -5,6 +5,10 @@ body{
     background-color:#595647;
    
 }
+p > span{
+    color: yellow;
+
+}
 h1,h2{
     color: #9ebff9;
     font-family: Arial, Helvetica, sans-serif;

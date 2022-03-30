@@ -1,0 +1,30 @@
+body{
+   
+    margin: 20px 30px 20px 20px;
+    padding: 2em;
+}
+button{
+    background-color: rgb(140, 152, 163);
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+
+}
+ table tr:first-child{
+background-color: blue;
+color: white;
+ }
+ #saveId{
+     background-color: rgb(75, 121, 75);
+     color: white;
+     border-radius: 5px;
+     border: 0px;
+     padding: 10px;
+
+ }
+ tr:nth-child(even){
+     background-color: #dddddd;
+     border: 1px solid black;
+ }

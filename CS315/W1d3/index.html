@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form1.css">
+</head>
+
+<body>
+    <h2>Adding to Textarea </h2>
+    <label>Input</label>
+    <br>
+    <input type="text" value="" id="text-el">
+    <br>
+    <label>Output</label>
+    <br>
+    <textarea id="area-el" value=""></textarea>
+    <br>
+    <button onclick="add()">Click to add</button>
+    <hr>
+    <h2>Simple Calculator</h2>
+    <label>First Value</label> <br>
+    <input type="text" id="num1-el" value=""> <br>
+    <label>Second Value</label> <br>
+    <input type="text" id="num2-el" value=""> <br>
+    <label>Operations:</label> <br>
+    <button onclick="addiction()"> + </button>
+    <button onclick="sub()"> - </button>
+    <button onclick="mult()"> * </button> <br>
+    <label>Result:</label><br>
+    <label id="result-el"> </label>
+    <hr>
+
+    <h2>Inventory</h2>
+    <lable>Item name:</lable><br>
+    <input type="text" value="Computer" id="item-el">
+    <br>
+    <label>Item Category</label><br>
+    <input type="text" value="Digital" id="category-el"><br>
+    <label>Quantity:</label> <br>
+    <input type="text" value="100" id="quantity-el"> <br>
+<button onclick="save()" id="saveId">Add</button><br>
+<table>
+    <tr>
+        <td>Product Name</td>
+        <td>Category</td>
+        <td>Quantity</td>
+    </tr>
+    
+</table>
+
+    <script src="form1.js"></script>
+</body>
+
+</html>

@@ -34,6 +34,7 @@ let itemName= document.getElementById("item-el");
 let category = document.getElementById("category-el");
  let quantity = document.getElementById("quantity-el");
  let tableElem = document.querySelector("table");
+ 
 
  function save(){
      let tr = document.createElement("tr");

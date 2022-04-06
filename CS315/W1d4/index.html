@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+    <h2>Inventory</h2>
+
+    <label>Item name:</label><br>
+    <input type="text" id="item-el" value="computer">
+    <br> <br>
+
+    <label>Item Category</label>
+    <br>
+    <input type="text"  id="category-el" value="laptop">
+    <br><br>
+
+    <label>Quantity:</label> 
+    <br>
+    <input type="text"  id="quantity-el" value="0">
+     <br><br>
+
+     <label>Ratings:</label><br>
+     <input type="text"  id="rating-el" value="0">
+     <br><br>
+
+    <button onclick="add()" id="addId">Add</button>
+    <button onclick="save()" id="saveId">Save</button>
+    
+    <br><br>
+    <label>SORT:</label>
+    <select name="sorted">
+        <option> </option>
+        <option >Name</option>
+        <option >Quantity</option>
+    </select>
+    <label>Filter:</label>
+    <select name="filtered">
+        <option></option>
+        <option>Quantitys</option>
+        <option>Rating</option>
+    </select>
+    <br><br><br>
+    <table>
+        <thead><tr >
+            <td>Product Name</td>
+            <td>Category</td>
+            <td>Quantity</td>
+            <td>Ratings</td>
+        </tr></thead>
+        
+<tbody id="table-el"></tbody>
+    </table>
+    <br><br>
+    
+    
+</body>
+    
+<script src="inventory.js"></script>
+</body>
+</html>

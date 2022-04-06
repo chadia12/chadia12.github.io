@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 2em;
+            width: 400px;
+        }
+
+        thead {
+            background-color: green;
+            color: white;
+
+        }
+        td{
+            padding: 25px;
+        }
+/*QUESTION 10 ##############################################################################################*/
+        tr:nth-child(3) {
+            background-color: blue;
+            color: white;
+        }
+
+        tr:nth-child(3) a {
+            color: white;
+        }
+
+
+        td {
+
+            border: 2px solid gray;
+        }
+
+        body {
+            margin: 20px 30px 20px 30px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 25px;
+        }
+
+        button {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--HTMLPAGE QUESTION 1##################################################################################################-->
+
+    <h1>Sites</h1>
+    <input type="text" placeholder="Enter site Name" id="nameid">
+    <input type="text" placeholder="Enter Address" id="addressid">
+    <input type="text" placeholder="Enter Keyword" id="keywordid">
+    <button id="addid" onclick="addButton()">Add</button><br>
+    <label id="labelid"></label>
+
+    <label id="add-to">
+        <label>Add To:</label>
+        <input type="checkbox" name="table-check" value="Table">Table
+        <input type="checkbox" name="list-check" value="list"> List
+    </label>
+    <br>
+    <div id="one">
+        <h2>List</h2>
+        <label id="label-el">
+            <ul id=""></ul>
+        </label>
+    </div>
+    <div id="two">
+        <h2>Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td id="sitename">Site Name</td>
+                    <td>Keywords</td>
+                </tr>
+            </thead>
+            <tbody id="tableid"></tbody>
+
+        </table>
+        <button onclick="removeButton()">Remove Site</button>
+    </div>
+
+    <script>
+        window.onload = function () {
+            mytable(arrtable);
+            mylist(arrlist);
+        }
+        let nameEl = document.getElementById("nameid");
+        let addressEl = document.getElementById("addressid");
+        let keyEl = document.getElementById("keywordid");
+        let labelEl = document.getElementById("labelid");
+        let divOne = document.getElementById("one");
+        divOne.style.display = "none";
+        let divTwo = document.getElementById("two");
+        divTwo.style.display = "none";
+
+        //QUESTION 2 and Question 3####################################################################################################
+        nameEl.onchange = nameFnc;
+
+        function nameFnc() {
+            if (nameEl.value === "") {
+                labelEl.innerHTML = "Please Enter Site Name";
+                labelEl.style.color = "red";
+                nameEl.style.borderBlockColor = "red";
+
+            }
+        }
+
+        addressEl.onchange = addresFnc;
+        function addresFnc() {
+            if (addressEl.value === "") {
+                labelEl.innerHTML = "Plesea Enter The Address";
+                labelEl.sty.color = "red";
+                addressEl.style.borderBlockColor = "red";
+            }
+        }
+
+        keyEl.onchange = keyFnc;
+        function keyFnc() {
+            if (keyEl.value === "") {
+                labelEl.innerHTML = "Pleasw Enter Keyword";
+                labelEl.style.color = "red";
+                keyEl.style.borderBlockColor = "red";
+            }
+        }
+
+        let addLab = document.getElementById("add-to");
+        addLab.style.display = "none";
+        function addButton() {
+            nameFnc();
+            addresFnc();
+            keyFnc();
+            addLab.style.display = "";
+
+        }
+
+        let arrtable = [];
+
+        let arrlist = [];
+
+        let tablearr = document.getElementById("tableid");
+
+        function mytable(arr) {
+
+            tablearr.innerHTML = " ";
+
+            arr.forEach(element => {
+                let trdata = document.createElement("tr");
+
+                //QUESTION 9#####################################################################################################
+                if (element.name === "amazon") {
+                    trdata.innerHTML = "<td><a style ='color:green;' href=" + element.address + ">" + element.name + "</a></td><td style ='color:blue;'>" + element.keyElement + "</td>"
+                }
+                else {
+                    trdata.innerHTML = "<td><a  href=" + element.address + ">" + element.name + "</a></td><td>" + element.keyElement + "</td>"
+                }
+                tablearr.append(trdata);
+
+            });
+
+        }
+        let ularray = document.querySelector("ul");
+        function mylist(arr) {
+            //QUESTION 4 ###########################################################################################################
+            arr.sort((a, b) => {
+
+                if (a.name > b.name) {
+                    return 1;
+                }
+                else if (a.name < b.name) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            });
+            ularray.innerHTML = " ";
+            arr.forEach(element => {
+                let linkname = document.createElement("a");
+                linkname.href = element.address;
+                linkname.innerHTML = element.name;
+                let labelElement = document.createElement("label");
+                labelElement.append(linkname);
+                for (let key of element.keyElement) {
+                    labelElement.innerHTML += "<li>" + key + "</li>";
+                }
+                ularray.append(labelElement);
+
+            });
+        }
+
+        let checkTable = document.getElementsByName("table-check")[0];
+
+        checkTable.onchange = tableListFnc;
+        //QUESTION 4 ############################################################################################################3
+        function tableListFnc() {
+
+            divTwo.style.display = "";
+            if (checkTable.checked) {
+                arrtable.push({ name: nameEl.value, address: addressEl.value, keyElement: (keyEl.value.split(",")) });
+                tablearr.innerHTML = "";
+                arrtable.sort((a, b) => {
+
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    else if (a.name < b.name) {
+                        return -1;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+                mytable(arrtable);
+            }
+
+
+
+        }
+        let checkList = document.getElementsByName("list-check")[0];
+        checkList.onchange = listcheckFnc;
+
+        //QUESTION 4 ##########################################################################################################################33
+
+        function listcheckFnc() {
+            
+            divOne.style.display = "";
+            if (checkList.checked) {
+                arrlist.push({ name: nameEl.value, address: addressEl.value, keyElement: (keyEl.value.split(",")) });
+                ularray.innerHTML = "";
+                mylist(arrlist);
+            }
+
+
+        }
+
+        //QUESTION 7 #############################################################################################################################33     
+        let tdName = document.getElementById("sitename");
+
+        tdName.onclick = sortNameFnc;
+        let newsort = [];
+
+        self.isAscending = true;
+        function sortNameFnc() {
+            arrtable.reverse();
+            createTable();
+        }
+            // if (self.isAscending) {
+            //     newsort = arrtable.sort((a, b) => {
+
+            //         if (a.name > b.name) {
+            //             return 1;
+            //         }
+            //         else if (a.name < b.name) {
+            //             return -1;
+            //         }
+            //         else {
+            //             return 0;
+            //         }
+            //     });
+            //     tablearr.innerHTML = "";
+            //     mytable(newsort);
+            // }
+            // else {
+            //     newsort = arrtable.sort((a, b) => {
+
+            //         if (a.name < b.name) {
+            //             return 1;
+            //         }
+            //         else if (a.name > b.name) {
+            //             return -1;
+            //         }
+            //         else {
+            //             return 0;
+            //         }
+            //     });
+            //     tablearr.innerHTML = "";
+            //     mytable(newsort);
+            // }
+
+            // self.isAscending = !self.isAscending;
+
+        
+        // QUESTION 8 ###############################################################################################################333
+        function removeButton() {
+            let promtmsg = prompt("Enter site name", " ");
+            for (let i of arrtable) {
+                if (i.name === promtmsg) {
+                    arrtable.splice(arrtable.indexOf(i), 1);
+                }
+            }
+            tablearr.innerHTML = "";
+            mytable(arrtable);
+
+        }
+
+    </script>
+</body>
+
+</html>

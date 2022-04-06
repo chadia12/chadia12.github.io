@@ -1,0 +1,21 @@
+body{
+    margin: 20px 30px 20px  30px;
+    padding: 2em;
+    background-color: rgb(224, 246, 246);
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+}
+tr:nth-child(even){
+    background-color: #dddddd;
+    border: 1px solid black;
+}
+thead{
+    background-color: rgb(22, 22, 186);
+    color: white;
+}
+tr:hover {
+    background-color: aqua;
+}

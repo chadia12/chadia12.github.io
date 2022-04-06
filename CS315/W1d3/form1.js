@@ -4,8 +4,12 @@
 let text1= document.getElementById("text-el");
 let inpArea= document.getElementById("area-el");
 
+let buttonAdd = document.getElementsByTagName("button")[0];
+buttonAdd.onclick =add;
+
 
 function add(){
+    buttonAdd.style.backgroundColor ="red";
 inpArea.innerText = text1.value;
 text1.value="";
 }

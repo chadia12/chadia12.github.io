@@ -137,6 +137,7 @@
 
         let addLab = document.getElementById("add-to");
         addLab.style.display = "none";
+
         function addButton() {
             nameFnc();
             addresFnc();
@@ -171,6 +172,7 @@
 
         }
         let ularray = document.querySelector("ul");
+
         function mylist(arr) {
             //QUESTION 4 ###########################################################################################################
             arr.sort((a, b) => {
@@ -253,44 +255,44 @@
 
         self.isAscending = true;
         function sortNameFnc() {
-            arrtable.reverse();
-            createTable();
+        //     arrtable.reverse();
+        //     createTable();
+        // }
+            if (self.isAscending) {
+                newsort = arrtable.sort((a, b) => {
+
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    else if (a.name < b.name) {
+                        return -1;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+                tablearr.innerHTML = "";
+                mytable(newsort);
+            }
+            else {
+                newsort = arrtable.sort((a, b) => {
+
+                    if (a.name < b.name) {
+                        return 1;
+                    }
+                    else if (a.name > b.name) {
+                        return -1;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+                tablearr.innerHTML = "";
+                mytable(newsort);
+            }
+
+            self.isAscending = !self.isAscending;
         }
-            // if (self.isAscending) {
-            //     newsort = arrtable.sort((a, b) => {
-
-            //         if (a.name > b.name) {
-            //             return 1;
-            //         }
-            //         else if (a.name < b.name) {
-            //             return -1;
-            //         }
-            //         else {
-            //             return 0;
-            //         }
-            //     });
-            //     tablearr.innerHTML = "";
-            //     mytable(newsort);
-            // }
-            // else {
-            //     newsort = arrtable.sort((a, b) => {
-
-            //         if (a.name < b.name) {
-            //             return 1;
-            //         }
-            //         else if (a.name > b.name) {
-            //             return -1;
-            //         }
-            //         else {
-            //             return 0;
-            //         }
-            //     });
-            //     tablearr.innerHTML = "";
-            //     mytable(newsort);
-            // }
-
-            // self.isAscending = !self.isAscending;
-
         
         // QUESTION 8 ###############################################################################################################333
         function removeButton() {
@@ -298,6 +300,7 @@
             for (let i of arrtable) {
                 if (i.name === promtmsg) {
                     arrtable.splice(arrtable.indexOf(i), 1);
+                    arrlist.splice(arrlist.indexOf(i),1);
                 }
             }
             tablearr.innerHTML = "";

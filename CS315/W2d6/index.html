@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+      .sectionCl {
+        display: flex;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        line-height: 100px;
+        margin: 0;
+      }
+
+      .articleCl {
+        padding: 10px;
+        margin: 10px;
+        background: aqua;
+      }
+
+      
+
+      .articleCl {
+        flex: 1 200px;
+      }
+
+      .articleCl:nth-of-type(3) {
+        flex: 3 200px;
+        display: flex;
+        flex-flow: column;
+      }
+
+      .articleCl:nth-of-type(3) div:first-child {
+        flex: 1 100px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .btnClass button{
+        flex: 1 auto;
+        margin: 5px;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      /* ===================== */
+
+.divWrap {
+            background-color: #24252A;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            margin-bottom: 10px;
+
+        }
+        #all-menu-bar-wrapper{
+            background-color: gray;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        li,a, .contact1 button, .contact button,  .contact2 button {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: #edf0f1;
+            text-decoration: none;
+        }
+
+        h2 {
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .ul-links {
+            list-style: none;
+        }
+
+        .ul-links li {
+            display: inline-block;
+            padding: 0px 20px;
+        }
+
+        .ul-links li a {
+            color: white;
+        }
+
+        .ul-links li a:hover {
+            color: #0088a9;
+        }
+
+       .contact1 button,  .contact button,  .contact2 button {
+            padding: 9px 25px;
+            background-color: rgba(0, 136, 169, 1);
+            border: none;
+            border-radius: 50px;
+           
+           
+        }
+        .hClass {
+            margin-right: auto;
+        }
+
+
+
+        .divWrap1 {
+            background-color: #24252A;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            margin-bottom: 10px;
+           
+
+        }
+        
+       
+        .hClass1 {
+            margin-left: auto;
+            order: 3;
+        }
+        .ul-links1 {
+            list-style: none;
+            margin-left: -55px;
+        }
+
+        .ul-links1 li {
+            display: inline-block;
+            padding: 0px 20px;
+        }
+
+        .ul-links1 li a {
+            transition: all 0.3s ease 0s;
+            color: white;
+        }
+
+        .ul-links1 li a:hover {
+            color: #0088a9;
+        }
+        .contact1{
+            order: 1;
+        }
+
+        .divWrap2 {
+            background-color: #24252A;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            margin-bottom: 10px;
+           
+
+        }
+
+        .hClass2 {
+            margin-right: auto;
+            
+        }
+        .ul-links2 {
+            list-style: none;
+            margin-right: -10px;
+        }
+
+        .ul-links2 li {
+            display: inline-block;
+            padding: 0px 20px;
+        }
+
+        .ul-links2 li a {
+            transition: all 0.3s ease 0s;
+            color: white;
+        }
+
+        .ul-links2 li a:hover {
+            color: #0088a9;
+        }
+  
+
+/*##################################################################################################################################################*/
+        .wrapDiv{
+            display: flex;
+           flex-wrap: wrap;
+           margin-top: 20px;
+        }
+        .photos {
+height:40vh;
+flex-grow: 1;
+        }
+        .photos:last-child{
+            flex-grow: 7;
+        }
+      img{
+          max-height: 100%;
+          min-width:100%;
+          object-fit:cover;
+          vertical-align: bottom;
+      }
+    </style>
+</head>
+<body>
+
+    
+  
+      <div class="sectionCl">
+        <div class="articleCl">
+          <h2>First article</h2>
+  
+          <p>it is a long established fact that a reader will be distracted by the readable content
+               of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+                a more-or-less normal distribution of letters, as opposed to using 'Content here,
+                 content here', making it look like readable English. Many desktop publishing packages
+                  and web page editors now use Lorem Ipsum as their default model text, and a search for 
+                  
+                 </p>
+              </div>
+  
+        <div class="articleCl">
+          <h2>Second article</h2>
+  
+          <p>it is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+               a more-or-less normal distribution of letters, as opposed to using 'Content here,
+                content here', making it look like readable English. Many desktop publishing packages
+                 and web page editors now use Lorem Ipsum as their default model text, and a search for</p>
+          </div>
+  
+        <div class="articleCl">
+          <div class="btnClass">
+            <button>Smile</button>
+            <button>Laugh</button>
+            <button>Wink</button>
+            <button>Shrug</button>
+            <button >Blush</button>
+          </div>
+          <div>
+            <p>it is a long established fact that a reader will be distracted by the readable content
+            of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+             a more-or-less normal distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English. Many desktop publishing packages
+               and web page editors now use Lorem.</p>
+          </div>
+          <div>
+            <p>it is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+               a more-or-less normal distribution of letters, as opposed to using 'Content here,
+                content here', making it look like readable English. </p>
+          </div>
+      </div>
+      </div>
+<!--##############################################################################################################################################-->
+
+
+<div id="all-menu-bar-wrapper">
+
+
+  <div class="divWrap">
+
+      <div class="hClass">
+          <h2>LOGOBAKERY</h2>
+      </div>
+
+      <div class="ul-links">
+          <ul>
+              
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Project</a></li>
+              <li><a href="#">About</a></li>
+              
+          </ul>
+      </div>
+
+      <div class="contact"><a href="">
+          <button>Contact</button></a> 
+      </div>
+
+
+
+  </div>
+
+
+
+
+
+
+  <div class="divWrap1">
+
+      <div class="hClass1">
+          <h2>LOGOBAKERY</h2>
+      </div>
+
+      <div class="ul-links1">
+          <ul>
+             
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Project</a></li>
+              <li><a href="#">About</a></li>
+             
+          </ul>
+      </div>
+
+      <div class="contact1"><a href="">
+          <button>Contact</button></a> 
+      </div>
+
+
+
+  </div>
+
+
+  <div class="divWrap2">
+
+      <div class="hClass2">
+          <h2>LOGOBAKERY</h2>
+      </div>
+
+      <div class="ul-links2">
+          <ul>
+              
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Project</a></li>
+              <li><a href="#">About</a></li>
+             
+          </ul>
+      </div>
+
+      <div class="contact2"><a href="">
+          <button>Contact</button></a> 
+      </div>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--##############################################################################################################################################-->
+    
+    <div class="wrapDiv">
+<div class="photos"> <img src="images/one.jpg" >   </div>
+<div class="photos" ><img src="images/two.jpg">  </div>
+ <div class="photos"><img src="images/three.jpg"> </div>
+<div class="photos" ><img src="images/four.jpg"> </div>
+<div class="photos" > <img src="images/five.jpg"> </div>
+<div class="photos" ><img src="images/six.jpg"> </div>
+<div class="photos" ><img src="images/seven.jpg"> </div>
+<div class="photos" ><img src="images/eight.jpg"> </div>
+<div class="photos" ><img src="images/nine.jpg"> </div>
+<div class="photos"><img src="images/ten.jpg"> </div>
+<div class="photos" ><img src="images/eleven.jpg"> </div>
+<div class="photos"><img src="images/twelve.jpg"> </div>
+<div class="photos" ><img src="images/thirten.jpg"> </div>
+<div class="photos" ><img src="images/four.jpg"> </div> 
+
+    </div>
+    
+</body>
+</html>

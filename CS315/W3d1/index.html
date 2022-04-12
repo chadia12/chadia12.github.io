@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainWrap{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:"aboutUs latestTweet  instagramClass" 
+            "homeClass homeClass homeClass";
+          
+            background-color: white;
+            color: black;
+           
+        }
+        .box{
+            background-color: black;
+            color:#fff;
+            padding: 20px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+        }
+        .aboutUs{
+            grid-area: aboutUs;
+        }
+        .latestTweet{
+            grid-area: latestTweet;
+
+        }
+        .instagramClass{
+            grid-area: instagramClass;
+
+        }
+        .homeClass{
+            grid-area: homeClass;
+        }
+        .aboutUs{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #87868B;
+            font-size: 15PX;
+        }
+        .latestTweet{
+            color: #87868B;
+            font-size: 15px;
+        }
+        .hClass{
+            color: white;
+            font-size: 15px;
+     
+    }
+.inputClass input{
+    background-color: #4e4d4d;
+    border: 0;
+    border-radius: 5px;
+    margin: 7px;
+
+}
+button{
+    background-color:#E9853E;
+    border: 0;
+    border-radius: 18px;
+    padding: 10px 20px;
+}
+.latestTweet ul{
+    list-style-image: url("images/twitter-16.ico");
+    
+}
+.aboutUs li:first-child{
+    list-style-image: url("images/phone-28-16.ico");
+    color:#fff;
+}
+.aboutUs li:last-child{
+    list-style-image: url("images/email-11-16.ico");
+    color:#fff;
+}
+.home li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 12px;
+   
+    
+
+}
+.home ul{
+    padding-left: 4px;
+}
+
+ .homeClass{
+     display: flex;
+     justify-content: space-between;
+   
+    
+ }
+ 
+ img{
+     height: 100%;
+     width:100%;
+    
+     
+ }
+
+ .classPhoto{
+     display: grid;
+     grid-column-gap: 20px;
+    grid-row-gap: 20px;
+     grid-template-columns: 1fr 1fr ;
+     grid-template-areas: "phtOne phtTwo"
+     "phtThree phtFour";
+    
+
+ }
+ .phtOne{
+grid-area: phtOne;
+ }
+ .phtTwo{
+grid-area: phtTwo;
+ }
+ .phtThree{
+grid-area: phtThree;
+ }
+ .phtFour{
+grid-area: phtFour;
+ }
+ .ul-Class li{
+     margin-bottom: 20px;
+ }
+ .aboutUs li{
+     margin-bottom: 20px;
+ }
+ .inputClass{
+    background-color: #4e4d4d;
+     padding: 0px 1px;
+     border-radius: 30px;
+     display: flex;
+     justify-content: space-between;
+    
+ }
+ .info ul{  
+     padding-left: 23px;
+ }
+     
+    </style>
+</head>
+<body>
+   <div class="mainWrap">
+
+
+<div class="box aboutUs">
+
+<div class="hClass">
+    <h2>About us</h2>
+</div>
+<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     Praesent pellentesque nisi bibendum eros molestie, nec fermentum erat tempus.
+      Cras posuere vehicula est. Maecenas iaculis convallis bibendum. Praesent scelerisque tortor dui,
+       at feugiat sapien semper in. Ut interdum ligula non ultrices molestie.</p></div>
+
+<div class="info"> <ul> <li>+1291 3912 329</li>
+    <li>info@gmail.com</li></ul></div>
+
+<div class="inputClass"><input type="text" placeholder="Enter your e-mail" ><button s>Send</button></div>
+
+</div>
+
+
+
+
+
+<div class="box latestTweet"> 
+
+<div class="hClass">
+    <h2>Latest Tweet</h2>
+</div>
+<div class="ul-Class">
+<ul>
+    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent pellentesque nisi bibendum eros molestie, nec fermentum erat tempus.</li>
+
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent pellentesque nisi bibendum eros molestie, nec fermentum erat tempus.</li>
+
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent pellentesque nisi bibendum eros molestie, nec fermentum erat tempus.</li>
+        </ul>
+  </div>
+</div> 
+
+
+
+
+
+
+<div class="box instagramClass">
+    <div class="hClass">
+        <h2>Instagram</h2>
+    </div>
+    <div class="classPhoto">
+<div class="phtOne"><img src="images/one.jpg"></div>
+<div class="phtTwo"><img src="images/fourteen.jpg"></div> 
+<div class="phtThree"><img src="images/thirten.jpg"></div>  
+<div class="phtFour"><img src="images/twelve.jpg"></div>
+</div>
+</div>
+
+
+
+
+
+<div class="box homeClass">
+    <div class="home">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Our Works</li>
+            <li>Services</li>
+            <li>Blog</li>
+            <li>Contacts</li>
+        </ul>
+    </div>
+
+    <div id="h4-id"><h4>Colorlib</h4></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

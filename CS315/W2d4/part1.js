@@ -28,34 +28,33 @@ let node1 = {
 };
 
 // function displayValue(nodeObj){
-//  if(nodeObj.children == null){
-//      console.log( nodeObj.name+": "+nodeObj.value);
-//  }
-//  else{
-//      console.log( nodeObj.name+": "+nodeObj.value);
-//      for(let sub of nodeObj.children){
-//          displayValue(sub);
-//      }
-//  }
+//     if (Array.isArray(nodeObj.children)) {
+//         console.log(nodeObj.name+ ":" + nodeObj.value);
+//         for (let element of nodeObj.children) {
+//             displayInArray(element);
+//         }
+
+//     } else {
+
+//         console.log(nodeObj.name +":" + nodeObj.value);
+
+//     }
 // }
 
 // console.log(displayValue(node1));
 
 
 function displayInArray(nodeObj){
-   
+   let arr =[];
     if(nodeObj.children == null){
-        return nodeObj.reduce(function(pre,current){
-            console.log(pre, current);
-            pre[current.name] = pre[current.value];
-            return pre;
-        });
+        arr= arr.concat([nodeObj.name + ": "+ nodeObj.value]);
     }
-   
-        let arr =[];
-        for(let sub of nodeObj.children){
-            arr.concat(displayInArray(sub));
+    else{
+        arr= arr.concat([nodeObj.name + ": "+ nodeObj.value]);
+        for (let elem of nodeObj.children) {
+            arr= arr.concat(displayInArray(elem)); 
         }
+    }
     return arr;
 }
 

@@ -3,65 +3,49 @@
 
 let nodeObj = {
 
-name: "Abe",
+    name: "Abe",
 
-children: [{
+    children: [{
 
-name: "Homer",
+        name: "Homer",
 
- children: [{ name: "Bart", children: null }, { name: "Lisa", children: null }, { name: "Maggie", children: null }]
+        children: [{ name: "Bart", children: null }, { name: "Lisa", children: null }, { name: "Maggie", children: null }]
 
-}]
+    }]
 
-}
+};
+
+
+
+// function printName(node) {
+//     if (Array.isArray(node.children)) {
+//         console.log(node.name);
+//         for (let element of node.children) {
+//             printName(element);
+//         }
+
+//     } else {
+
+//         console.log(node.name);
+
+//     }
+
+// }
+// console.log(printName(nodeObj));
+
+// function findName(node, target){
+//    if(node.name == target){
+//        return true;
+//    }
+//    else if(Array.isArray(node.children)){
+//        for(let elem of node.children){
+//            return contains(elem, target)
+//        }
+//    }
+//    else{
+//        return false;
+//    }
     
-    
-    
-    // function printName(node) {
-    //     function printName(node) {
+// }
+// console.log(findName(nodeObj, "chadia"));
 
-    //         if (Array.isArray(node.children)) {
-            
-    //         console.log(node.name);
-            
-    //         for (let element of node.children) {
-            
-    //         printName(element);
-            
-    //         }
-            
-    //         } else {
-            
-    //         console.log(node.name);
-            
-    //         }
-            
-            
-    //         }
-    // }
-    
-    // console.log(printName(Abe));
-
-    function displayName(node, target){
-        if(node.children != target){
-           
-            //for(let element of node.children){
-                console.log(false);
-                   // displayName(element, target);
-                }
-        
-        else{
-            for(let element of node.children){
-                
-                    console.log(true);
-                    displayName(element,target);
-                }
-               
-            }
-            
-        }
-
-
-    
-
-    console.log(displayName(nodeObj, "Lisa"));

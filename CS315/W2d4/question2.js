@@ -49,3 +49,55 @@ let nodeObj = {
 // }
 // console.log(findName(nodeObj, "chadia"));
 
+
+// Question4
+// function ListNode(name){
+//     this.name = name;
+//     this.next = null;
+
+// }
+// const maggie = new ListNode("Maggie");
+// console.log(maggie);
+// const lisa = new ListNode("Lisa");
+// lisa.next = maggie;
+// const bart = new ListNode("Bart");
+// bart.next = lisa;
+// const homer = new ListNode("Homer");
+// homer.next = bart;
+// const abe = new ListNode("Abe");
+// abe.next = homer;
+
+
+//question 5
+// function findListNode(list, target){
+//     let listCont = null;
+//     if(list.next == null){
+//         if(list.name == target){
+//             listCont = list;
+//         }
+    
+//     else{
+//         listCont = findListNode(list.next, target);
+//   }
+// }
+// return listCont
+// }
+
+// console.log(findListNode(abe, "lisa"));
+
+//Question 7
+
+function treeCollector(tree) {
+    let arr =[];
+    if(tree.children == null){
+       arr = arr.concat(tree.name);
+    }
+    else{
+        arr = arr.concat(tree.name);
+        for(let sub of tree.children){
+            arr = arr.concat(treeCollector(sub));
+        }
+    }
+    return arr;
+}
+console.log(treeCollector(nodeObj));

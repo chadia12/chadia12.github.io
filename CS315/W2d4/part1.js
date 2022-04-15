@@ -26,7 +26,7 @@ let node1 = {
     children: [node2, node3],
     value: null,
 };
-//  QUESTION 1 PART 2##############################################
+//  QUESTION 1 PART 2 ##############################################
 
 
 function displayValue(nodeObj){

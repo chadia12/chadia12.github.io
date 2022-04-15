@@ -139,7 +139,7 @@ function ListNode(value) {
     }
     return linkedList;
     }
-    
+    console.log(JSON.stringify(generateList(Abe)));
 
 
 //QUESTION 5 PART 3##############################################

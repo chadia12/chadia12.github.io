@@ -9,7 +9,7 @@ for(let elem of this){
 }
 new Promise(function(resolve, reject){
 resolve(arr);
-}).then(result => console.log(result));
+}).then(res => console.log(res));
 }
 
 

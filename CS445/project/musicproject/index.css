@@ -16,3 +16,10 @@ img{
  h4{
     font-family: 'Oleo Script Swash Caps', cursive;   
  }
+ #searchWrap{
+     display: none;
+ }
+
+ #welcome{
+display: block;
+ }

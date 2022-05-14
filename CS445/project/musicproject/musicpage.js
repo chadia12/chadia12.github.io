@@ -95,7 +95,6 @@ function fetchMusic() {
 
 }
 //*******************************END SONG LIST******************************* */
-
 //*******************************PLAYLIST******************************* */
 
 function fetchPlaylist() {
@@ -111,6 +110,7 @@ function fetchPlaylist() {
     })
         .then(response => response.json())
         .then(playListSongs => {
+            console.log(playListSongs);
             if (playListSongs.length === 0) {
                 document.getElementById("playwrap").style.display = 'none';
                 document.getElementById("empytMessage").style.display = 'block';
@@ -124,7 +124,7 @@ function fetchPlaylist() {
             <td>${element.orderId}</td>
             <td>${element.title}</td>
             
-            <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
+            <td><button type="button" class="btn btn-dark text-center" data-remove="${element.songId}" onclick="deletBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                 <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
               </svg></button>
                 <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
@@ -133,7 +133,7 @@ function fetchPlaylist() {
             </td>
         </tr>`;
                     playList.innerHTML += res;
-                    deletBtn();  
+                    
                     
                 });
                
@@ -239,6 +239,7 @@ function addSongToPlayList() {
 
 function deletBtn(btn){
 
+
             let id = btn.getAttribute("data-remove");
             const playList = document.getElementById("playList");
             playList.innerHTML = "";
@@ -252,13 +253,14 @@ function deletBtn(btn){
                 }
             }).then(response => response.json())
                 .then(songs => {
+                    
                    console.log(songs);
                     songs.forEach(element => {
                         let res = `<tr>
                         <td>${element.orderId}</td>
                         <td>${element.title}</td>
                         
-                        <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
+                        <td><button type="button" class="btn btn-dark text-center " data-remove="${element.songId}" onclick="deletBtn(this)" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
                           </svg></button>
                             <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
@@ -278,6 +280,3 @@ function deletBtn(btn){
 }
 
 //*******************************END DELETE BUTTON******************************* */
-
-
-

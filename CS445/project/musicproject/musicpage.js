@@ -58,7 +58,7 @@ function loggedInFeatures(data) {
 
 }
 
-
+//*******************************SONG LIST******************************* */
 
 function fetchMusic() {
     const allMusic = document.getElementById('musicTable');
@@ -94,8 +94,9 @@ function fetchMusic() {
         )
 
 }
+//*******************************END SONG LIST******************************* */
 
-
+//*******************************PLAYLIST******************************* */
 
 function fetchPlaylist() {
     const playList = document.getElementById("playList");
@@ -123,7 +124,7 @@ function fetchPlaylist() {
             <td>${element.orderId}</td>
             <td>${element.title}</td>
             
-            <td><button type="button" class="btn btn-dark text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
+            <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                 <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
               </svg></button>
                 <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
@@ -132,14 +133,16 @@ function fetchPlaylist() {
             </td>
         </tr>`;
                     playList.innerHTML += res;
+                    deletBtn();  
+                    
                 });
-
+               
             }
 
         })
 
 }
-
+//*******************************END PLAYLIST******************************* */
 
 function afterLogin() {
     document.getElementById("searchWrap").style.display = 'block';
@@ -162,6 +165,8 @@ function notLogin() {
 
 }
 
+
+//*******************************SEARCH SONG******************************* */
 function searchMusic() {
     let searchSong = document.getElementById("serachSong");
    fetch(`http://localhost:3000/api/music?search=${searchSong.value}`, {
@@ -189,7 +194,7 @@ function searchMusic() {
             searchSong.value = "";
         })
 }
-
+//*******************************END SEARCH******************************* */
 function addSongToPlayList() {
     let songAdd = document.querySelectorAll(".addSong");
     for (let songElement of songAdd) {
@@ -212,7 +217,7 @@ function addSongToPlayList() {
                         <td>${element.orderId}</td>
                         <td>${element.title}</td>
                         
-                        <td><button type="button" class="btn btn-dark text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
+                        <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}" onclick="deletBtn(this)" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
                           </svg></button>
                             <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
@@ -230,3 +235,49 @@ function addSongToPlayList() {
     }
 
 }
+//*******************************DELETE BUTTON******************************* */
+
+function deletBtn(btn){
+
+            let id = btn.getAttribute("data-remove");
+            const playList = document.getElementById("playList");
+            playList.innerHTML = "";
+
+            fetch('http://localhost:3000/api/playlist/remove', {
+                method: 'POST',
+                body: JSON.stringify({ songId: id }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                    'Authorization': `Bearer ${sessionStorage.getItem('keyaccess')}`
+                }
+            }).then(response => response.json())
+                .then(songs => {
+                   console.log(songs);
+                    songs.forEach(element => {
+                        let res = `<tr>
+                        <td>${element.orderId}</td>
+                        <td>${element.title}</td>
+                        
+                        <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
+                            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
+                          </svg></button>
+                            <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                                <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                              </svg></button>
+                        </td>
+                    </tr>`;
+                        playList.innerHTML += res;
+                    })
+
+                })
+
+        
+
+    
+
+}
+
+//*******************************END DELETE BUTTON******************************* */
+
+
+

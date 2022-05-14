@@ -1,11 +1,16 @@
-
+body{
+    background-color: black;
+}
 .wrapMain{
 background-color: black;
-    height: 700px;
+
 }
-img{
-    width: 200px;
+.logos img{
+    width: 220px;
     height: 100%;
+}
+#imageBack{
+    display: block;
 }
  h2 {
      margin: 20px;
@@ -23,3 +28,13 @@ img{
  #welcome{
 display: block;
  }
+#musicWrap{
+    display: block;
+}
+
+#playwrap{
+    display:block;
+}
+#empytMessage{
+    display: none;
+}

@@ -6,7 +6,7 @@ background-color: black;
 
 }
 .logos img{
-    width: 220px;
+    width: 355px;
     height: 100%;
 }
 #imageBack{
@@ -45,4 +45,10 @@ audio{
 #audioPlay{
   margin-left: 97px; 
   display: none; 
+}
+.logos{
+    border-bottom: 1px solid gray;
+}
+#imageBack{
+    margin-top: 100px;
 }

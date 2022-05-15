@@ -127,7 +127,7 @@ function fetchPlaylist() {
             <td><button type="button" class="btn btn-dark text-center" data-remove="${element.songId}" onclick="deletBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                 <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
               </svg></button>
-                <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                <button type="button" class="clickplaybtn btn btn-dark text-center" data-play="${element.title}" onclick="playBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
                     <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                   </svg></button>
             </td>
@@ -151,6 +151,7 @@ function afterLogin() {
     document.getElementById("musicWrap").style.display = 'block';
     document.getElementById("playwrap").style.display = 'block';
     document.getElementById("imageBack").style.display = 'none';
+    
     fetchMusic();
     fetchPlaylist();
 }
@@ -162,6 +163,8 @@ function notLogin() {
     document.getElementById("musicWrap").style.display = 'none';
     document.getElementById("playwrap").style.display = 'none';
     document.getElementById("imageBack").style.display = 'block';
+    document.getElementById("audioPlay").style.display ="none"
+    
 
 }
 
@@ -222,7 +225,7 @@ function addSongToPlayList() {
                         <td><button type="button" class="btn btn-dark text-center removeBtn" data-remove="${element.songId}" onclick="deletBtn(this)" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
                           </svg></button>
-                            <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                            <button type="button" class="clickplaybtn btn btn-dark text-center" data-play="${element.title}" onclick="playBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
                                 <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                               </svg></button>
                         </td>
@@ -265,7 +268,7 @@ function deletBtn(btn){
                         <td><button type="button" class="btn btn-dark text-center " data-remove="${element.songId}" onclick="deletBtn(this)" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
                           </svg></button>
-                            <button type="button" class="btn btn-dark text-center" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                            <button type="button" class=" clickplaybtn btn btn-dark text-center" data-play="${element.title}" onclick="playBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
                                 <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                               </svg></button>
                         </td>
@@ -282,3 +285,32 @@ function deletBtn(btn){
 }
 
 //*******************************END DELETE BUTTON******************************* */
+
+function playBtn(obj){
+
+
+        let id = obj.getAttribute("data-play");
+        
+        fetch(`http://localhost:3000/api/music?search=${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${sessionStorage.getItem('keyaccess')}`
+            }
+        }).then(response => response.json())
+            .then(songs => {
+                console.log(songs[0].urlPath);
+                let playAudio = document.getElementById("audioPlay");
+                playAudio.style.display ="block"
+                let res =` <audio controls autoplay>
+                <source src="http://localhost:3000/${songs[0].urlPath}" type="audio/mpeg">
+                </audio>`;
+                playAudio.innerHTML +=res;
+
+
+            })
+
+    
+
+
+}

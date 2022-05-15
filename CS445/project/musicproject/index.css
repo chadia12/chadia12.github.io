@@ -38,3 +38,11 @@ display: block;
 #empytMessage{
     display: none;
 }
+
+audio{
+    width: 93%;
+}
+#audioPlay{
+  margin-left: 97px; 
+  display: none; 
+}

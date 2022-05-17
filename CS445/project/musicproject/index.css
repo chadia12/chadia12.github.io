@@ -40,10 +40,10 @@ display: block;
 }
 
 audio{
-    width: 93%;
+    width: 65%;
 }
 #audioPlay{
-  margin-left: 97px; 
+  
   display: none; 
 }
 .logos{

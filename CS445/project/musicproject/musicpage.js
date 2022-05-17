@@ -39,7 +39,7 @@ window.onload = function () {
     }
     document.getElementById("searchBtn").onclick = searchMusic;
 
-
+    
 }
 
 
@@ -127,7 +127,7 @@ function fetchPlaylist() {
             <td><button type="button" class="btn btn-dark text-center" data-remove="${element.songId}" onclick="deletBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16">
                 <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"/>
               </svg></button>
-                <button type="button" class="clickplaybtn btn btn-dark text-center" data-playSong="${element.urlPath}" onclick="playBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                <button type="button" class="clickplaybtn btn btn-dark text-center" data-id="${element.orderId}" data-playSong="${element.urlPath}" onclick="playBtn(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
                     <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                   </svg></button>
             </td>
@@ -200,6 +200,8 @@ function searchMusic() {
         })
 }
 //*******************************END SEARCH******************************* */
+
+//*******************************ADD SONG TO PLAY LIST******************************* */
 function addSongToPlayList() {
     let songAdd = document.querySelectorAll(".addSong");
     for (let songElement of songAdd) {
@@ -231,6 +233,7 @@ function addSongToPlayList() {
                         </td>
                     </tr>`;
                         playList.innerHTML += res;
+                       
                     })
 
                 })
@@ -238,8 +241,10 @@ function addSongToPlayList() {
         }
 
     }
-
+   
 }
+//******************************* END ADD SONG TO PLAY LIST******************************* */
+
 //*******************************DELETE BUTTON******************************* */
 
 function deletBtn(btn){
@@ -286,13 +291,118 @@ function deletBtn(btn){
 
 //*******************************END DELETE BUTTON******************************* */
 
+//******************************* PLAY SONG BUTTON******************************* */
+
 function playBtn(obj){
+    let id= obj.getAttribute("data-id");
         let titleSong = obj.getAttribute("data-playSong");
                 let playAudio = document.getElementById("audioPlay");
-                playAudio.innerHTML="";
+                // playAudio.innerHTML="";
                 playAudio.style.display ="block"
-                let res =` <audio controls autoplay>
-                <source src="http://localhost:3000/${titleSong}" type="audio/mpeg">
-                </audio>`;
-                playAudio.innerHTML +=res;
+                playAudio.innerHTML =` 
+                <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <button id="prev"  class="action-btn" data-back="${id}" onclick="previousSong(this)">
+                        <i class="fa-solid fa-backward-fast" ></i></button>
+                  </div>
+                  <div class="col-6">
+                    <audio controls autoplay>
+                        <source src="http://localhost:3000/${titleSong}" type="audio/mpeg">
+                        </audio>
+                  </div>
+                  <div class="col">
+                    <button id="next"  class="action-btn" data-back="${id}" onclick="nextSong(this)">
+                        <i class="fa-solid fa-forward-fast" ></i></button>
+                        <button onclick="repeatSong()"><i class="fa-solid fa-repeat"></i></button>
+                  </div>
+
+              </div>`;
+                
+                
+}
+
+//******************************* END PLAY SONG BUTTON******************************* */
+
+//******************************* PREVIOUS SONG******************************* */
+function previousSong(obj){
+    let id= obj.getAttribute("data-back");
+
+ fetch('http://localhost:3000/api/playlist', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('keyaccess')}`
+        }
+
+    }).then(response => response.json())
+    .then(songs =>{
+        let filtSong = songs.filter(eachSong => eachSong.orderId == Number(id)-1);
+        let playAudio = document.getElementById("audioPlay");
+        playAudio.style.display ="block"
+        playAudio.innerHTML =` 
+        <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <button id="prev"  class="action-btn" data-back="${filtSong[0].orderId}" onclick="previousSong(this)">
+                        <i class="fa-solid fa-backward-fast" ></i></button>
+                  </div>
+                  <div class="col-6">
+                    <audio controls autoplay>
+                        <source src="http://localhost:3000/${filtSong[0].urlPath}" type="audio/mpeg">
+                        </audio>
+                  </div>
+                  <div class="col">
+                    <button id="next"  class="action-btn" data-back="${filtSong[0].orderId}" onclick="nextSong(this)">
+                        <i class="fa-solid fa-forward-fast" ></i></button>
+                        <button onclick="repeatSong()"><i class="fa-solid fa-repeat"></i></button>
+                  </div>
+
+              </div>`;
+    })
+}
+
+//******************************* END PREVIOUS SONG******************************* */
+
+//******************************* NEXT SONG******************************* */
+
+function nextSong(obj){
+    let id= obj.getAttribute("data-back");
+    fetch('http://localhost:3000/api/playlist', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('keyaccess')}`
+        }
+
+    }).then(response => response.json())
+    .then(songs =>{
+        let filtSong = songs.filter(eachSong => eachSong.orderId == Number(id)+1);
+        let playAudio = document.getElementById("audioPlay");
+        playAudio.style.display ="block"
+        playAudio.innerHTML =`
+        <div class="container">
+        <div class="row">
+          <div class="col">
+            <button id="prev"  class="action-btn" data-back="${filtSong[0].orderId}" onclick="previousSong(this)">
+                <i class="fa-solid fa-backward-fast" ></i></button>
+          </div>
+          <div class="col-6">
+            <audio controls autoplay>
+                <source src="http://localhost:3000/${filtSong[0].urlPath}" type="audio/mpeg">
+                </audio>
+          </div>
+          <div class="col">
+            <button id="next"  class="action-btn" data-back="${filtSong[0].orderId}" onclick="nextSong(this)">
+                <i class="fa-solid fa-forward-fast" ></i></button>
+                <button onclick="repeatSong()"><i class="fa-solid fa-repeat"></i></button>
+          </div>
+
+      </div>`;
+    })
+
+}
+//******************************* END NEXT SONG******************************* */
+
+
+function repeatSong(){
+    playAudio = document.querySelector("audio").loop = true;  
 }

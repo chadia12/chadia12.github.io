@@ -1,6 +1,6 @@
 "use strict";
 /*eslint-disable */
-
+////*******************************window onload with login and logout******************************* */
 window.onload = function () {
     if (sessionStorage.getItem('keyaccess')) {
         afterLogin();
@@ -9,6 +9,7 @@ window.onload = function () {
         notLogin();
     }
 
+//*******************************LOGIN******************************* */
     document.getElementById("login").onclick = function () {
 
         const user = document.getElementById("user").value;
@@ -31,7 +32,7 @@ window.onload = function () {
             .then(data => loggedInFeatures(data));
 
     }
-
+//*******************************LOGOUT******************************* */
     document.getElementById("logout").onclick = function () {
         sessionStorage.removeItem('keyaccess');
         notLogin();
@@ -43,7 +44,7 @@ window.onload = function () {
 }
 
 
-
+////*******************************LOGIN INVALID USER & PASSWORD******************************* */
 function loggedInFeatures(data) {
     if (data.status) {
         let errorDisplay = document.getElementById("loginError");
@@ -95,6 +96,7 @@ function fetchMusic() {
 
 }
 //*******************************END SONG LIST******************************* */
+
 //*******************************PLAYLIST******************************* */
 
 function fetchPlaylist() {
@@ -144,6 +146,8 @@ function fetchPlaylist() {
 }
 //*******************************END PLAYLIST******************************* */
 
+
+//*******************************AFTER LOGIN******************************* */
 function afterLogin() {
     document.getElementById("searchWrap").style.display = 'block';
     document.getElementById("loginWrap").style.display = 'none';
@@ -155,7 +159,7 @@ function afterLogin() {
     fetchMusic();
     fetchPlaylist();
 }
-
+//*******************************HOME PAGE****************************** */
 function notLogin() {
     document.getElementById("searchWrap").style.display = 'none';
     document.getElementById("loginWrap").style.display = 'block';
@@ -402,7 +406,7 @@ function nextSong(obj){
 }
 //******************************* END NEXT SONG******************************* */
 
-
+//*******************************REPEAT SONG****************************** */
 function repeatSong(){
     playAudio = document.querySelector("audio").loop = true;  
 }

@@ -1,3 +1,6 @@
+"use strict";
+
+/* eslint-disable */
 const result = (function(exports, module){
     exports = module.exports;
     exports.firstname = 'John';
@@ -12,4 +15,3 @@ const result = (function(exports, module){
 console.log(result);
 
 // the output will be : firstname: 'John', lastname: 'Smith'
-jghkh

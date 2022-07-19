@@ -14,21 +14,21 @@ class Student {
     }
 
     save(){
-        let newobj={}
-        newobj.id = this.id;
-        newobj.fname = this.fname;
-        newobj.lname = this.lname; 
-       db.push(newobj);
+     const res= db.find(user =>user.id === this)
+     if(res){
+        throw new error ('user exist');
+     }
+    
+    db.push(this);
   
     }
 
     edit(){
-        let newobj={}
-        newobj.id = this.id;
-        newobj.fname = this.fname;
-        newobj.lname = this.lname;  
-      
-        Object.assign(db.find((elem)=>elem.id === newobj.id), newobj);
+       const index= db.findIndex(stu => stu.id === this.id);
+       if(index < 0){
+        throw new Error("user doesn't exist");
+       }
+       db[index] = this;
 
     }
 

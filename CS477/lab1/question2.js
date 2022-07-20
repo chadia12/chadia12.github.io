@@ -13,7 +13,7 @@ SetImmediate: will execute once the tick is called only.
 
 //3.Name 10 global modules/methods available in Node environment.
 /** 10 global modules available in node environment
- * module, process, buffer, require, global, setTimeout, setIntervale
+ * module, process, buffer, require, global, setTimeout, setIntervale, _filename, _dirname, URL
  
  */
 

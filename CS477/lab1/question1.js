@@ -13,7 +13,7 @@ Array.prototype.even = function(){
 
 Array.prototype.odd = function(){
     let newarr = this;
-    return newarr.filter((elem) => elem % 2 != 0)
+    return newarr.filter((elem) => elem % 2 != 0);
 }
 
 console.log(arr.even());

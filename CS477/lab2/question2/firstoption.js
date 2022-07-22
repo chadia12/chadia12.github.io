@@ -26,7 +26,7 @@ const path = require('path');
 // }).listen(3000,() => console.log('listening on port 3000'));
 
  
-//################ last option which is the better one #############
+//################ last option which is the better one using stream #############
   http.createServer((req, res) =>{
     res.writeHead(200, {'Content-type':'image/jpg'});
     let img = fs.createReadStream(path.join(__dirname, 'tout.jpg'));

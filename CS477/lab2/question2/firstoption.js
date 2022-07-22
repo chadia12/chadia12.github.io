@@ -7,7 +7,7 @@ const path = require('path');
 //################ first option using synchronous #############
 // http.createServer((req, res) =>{
 //    res.writeHead(200, {'Content-type':'image/jpg'}); 
-//    let img = fs.readFileSync(path.join(__dirname, 'tout.jpg'));
+//    let img = fs.readFileSync(path.join(__dirname, 'full.jpg'));
 // res.end(img);
 // }).listen(3000,() =>console.log('listening on  port 3000'));
 
@@ -16,7 +16,7 @@ const path = require('path');
 
 // http.createServer((req, res) =>{
 //  res.writeHead(200,{'Content-type':'image/jpg'});
-//  fs.readFile(path.join(__dirname, 'tout.jpg'),(err, data)=>{
+//  fs.readFile(path.join(__dirname, 'full.jpg'),(err, data)=>{
 //     if(err){
 //         throw new error(err)
 //     }
@@ -29,7 +29,7 @@ const path = require('path');
 //################ last option which is the better one using stream #############
   http.createServer((req, res) =>{
     res.writeHead(200, {'Content-type':'image/jpg'});
-    let img = fs.createReadStream(path.join(__dirname, 'tout.jpg'));
+    let img = fs.createReadStream(path.join(__dirname, 'full.jpg'));
        img.pipe(res);
 
   }).listen(3000, () => console.log('listen on port 3000'));

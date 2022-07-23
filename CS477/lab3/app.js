@@ -15,12 +15,12 @@ http.createServer((req, res) =>{
         res.end(mypage);
     }
     else if(req.url === '/homepage' && req.method === 'POST'){
-        const body = [];
+        const arr = [];
         req.on('data', chunk =>{
-            body.push(chunk);
+            arr.push(chunk);
         });
         req.on('end', () => {
-            const wrd = Buffer.concat(body).toString();
+            const wrd = Buffer.concat(arr).toString();
             const str =wrd.split('&');
             fs.writeFile('displaypage.txt', `${str[0]} ${str[1]}`, (err) =>{
                 if(!err){

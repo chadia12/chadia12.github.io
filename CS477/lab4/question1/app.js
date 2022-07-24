@@ -17,31 +17,29 @@ const app = express();
 const path = require('path');
 
 app.set('port', process.env.Port || 3000);
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
 
- app.use('/loginpage',(req, res, next)=>{
-    if(req.body.uname ==='chadia' && req.body.mail ==='cha@12.com' && req.body.psw ==='123' ){
+app.use('/loginpage', (req, res, next) => {
+    if (req.body.uname === 'chadia' && req.body.mail === 'cha@12.com' && req.body.psw === '123') {
         res.redirect('/product');
     }
-    else{
-        
-       res.redirect('/user');
+    else {
+
+        res.redirect('/user');
     }
-
- });
-
- 
-
- app.use('/product',(req, res, next)=>{
-res.sendFile(path.join(__dirname, 'product.html'));
- })
-
- app.use('/',(req, res, next)=>{
-    res.sendFile(path.join(__dirname,'user.html'));
 
 });
 
 
-app.listen(app.get('port'),() => console.log(`${app.get('port')}`));
+app.use('/product', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'product.html'));
+})
+
+app.use('/', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'user.html'));
+
+});
+
+app.listen(app.get('port'), () => console.log(`${app.get('port')}`));
 

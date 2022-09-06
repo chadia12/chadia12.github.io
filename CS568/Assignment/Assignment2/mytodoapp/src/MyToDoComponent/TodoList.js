@@ -9,7 +9,7 @@
         <ul>
             <li> Hit the gym</li>
             <li>Do Assignment</li>
-            <li>Read a ook</li>
+            <li>Read a book</li>
         </ul>
 <TodoItem />
        </div> 
